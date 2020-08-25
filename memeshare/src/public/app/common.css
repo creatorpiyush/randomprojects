@@ -1,4 +1,7 @@
 * {
-    margin: 1.2%;
     font-family: "Fira Code", monospace;
+}
+
+div {
+    margin: 1.2%;
 }
