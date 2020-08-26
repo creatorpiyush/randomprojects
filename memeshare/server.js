@@ -12,7 +12,7 @@ const indexroute = require("./src/routes/index");
 // *****
 
 app.set("view engine", "hbs");
-app.set("views", "./src/views");
+app.set("views", "./src/public/components");
 app.use("/", express.static(__dirname + "/src/public"));
 app.use(express.urlencoded({ urlencoded: true }));
 app.use(express.json());
