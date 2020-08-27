@@ -5,23 +5,22 @@ function loadProducts() {
         $(`<div class="card-image">
                 <img src="images/sample-1.jpg">
                 <span class="card-title">Card Title</span>
-                <span>
-                    <a class="btn-floating halfway-fab waves-effect waves-light" id='likebtn'> <i class="material-icons"
-                            id="like" style="font-size: 35px;">favorite_border</i></a>
-                </span>
+                <button class="btn-floating halfway-fab waves-effect waves-light blue" style="font-size: 35px;"> <span
+                        class="material-icons">
+                        get_app
+                    </span></button>
             </div>
 `)
       );
+      // clinked();
     }
   });
 }
 
-$("#likebtn").dblclick(function () {
-  // $("#like").append(`favorite`);
-  alert("bye");
-});
-
-
+function clinked() {
+  document.getElementById("liked").innerHTML = "favorite";
+  console.log("btn clinked");
+}
 
 // window.onload = function () {
 //   document.getElementById("likebtn").onclick = function () {
@@ -38,3 +37,7 @@ $("#likebtn").dblclick(function () {
 // };
 
 // console.log(count);
+
+// todo: llke button functioning
+// <button class="btn-floating halfway-fab waves-effect waves-light" id='likebtn' ondblclick="clinked()"> <i class="material-icons"
+//         id="liked" style="font-size: 35px;" >favorite_border</i></button>
