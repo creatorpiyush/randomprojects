@@ -1,4 +1,5 @@
-const route = require("express").Router();
+const express = require("express");
+const route = express.Router();
 const multer = require("multer");
 const fs = require("fs").promises;
 
@@ -7,13 +8,36 @@ const addmeme = require("../db/db");
 // * images upload
 const upload = multer({ dest: "src/uploads/" });
 
-app.use("/images", express.static(__dirname + "/images"));
-
-route.post("/", (req, res) => {
+route.use("/images", express.static("../images"));
+route.get("/", (req, res) => {
+  res.render("addmeme");
+});
+route.post("/add", upload.single("memeimg"), (req, res) => {
   console.log("req.body", req.body);
   console.log("req.file", req.file);
+  console.log("req.file", req.file.filename);
+
+  const oldPath = "src/uploads/" + req.file.filename;
+
+  const newPath =
+    "src/images/" +
+    "memeimg_" +
+    Date.now() +
+    "." +
+    req.file.mimetype.split("/").pop();
+
+  fs.rename(oldPath, newPath);
+
   const temp = new addmeme({
-    memetitle: req.body.title,
+    memeimg:
+      "src/images/" +
+      "memeimg_" +
+      Date().split(" ").join("_").split(":").join("_") +
+      "." +
+      req.file.mimetype.split("/").pop(),
+    // memeimg: req.body.memeimg,
+    memeid: Date().split(" ").join("_").split(":").join("_"),
+    memetitle: req.body.memetitle,
   });
 
   temp.save((err, result) => {
