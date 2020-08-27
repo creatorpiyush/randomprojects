@@ -3,12 +3,10 @@ function loadProducts() {
     for (let i = 0; i < 10; i++) {
       $("#posts-container").append(
         $(`<div class="card-image">
-                <img src="images/sample-1.jpg">
+                <img src="../images/51310067.jpeg">
                 <span class="card-title">Card Title</span>
-                <button class="btn-floating halfway-fab waves-effect waves-light blue" style="font-size: 35px;"> <span
-                        class="material-icons">
-                        get_app
-                    </span></button>
+                <a href="../images/51310067.jpeg" class="btn-floating halfway-fab waves-effect waves-light blue" style="font-size: 35px;" download="File_name"> 
+                <i class="material-icons">get_app</i></a>
             </div>
 `)
       );
