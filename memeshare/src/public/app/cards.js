@@ -1,11 +1,11 @@
 function loadProducts() {
-  $.get("/", (product) => {
-    for (let i = 0; i < 10; i++) {
+  $.get("/content", (meme) => {
+    for (let m of meme) {
       $("#posts-container").append(
         $(`<div class="card-image">
-                <img src="">
-                <span class="card-title">Card Title</span>
-                <a href="" class="btn-floating halfway-fab waves-effect waves-light blue" style="font-size: 35px;" download="File_name"> 
+                <img src="..${m.memeimg}">
+                <span class="card-title">${m.memetitle}</span>
+                <a href="..${m.memeimg}" class="btn-floating halfway-fab waves-effect waves-light blue" style="font-size: 35px;" download="${m.memetitle}"> 
                 <i class="material-icons">get_app</i></a>
             </div>
 `)

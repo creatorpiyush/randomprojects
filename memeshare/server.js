@@ -11,6 +11,7 @@ const app = express();
 // * routes('./src/routes')
 const indexroute = require("./src/routes/index");
 const memedb = require("./src/routes/cardsdb");
+const memeshow = require("./src/routes/show");
 
 // *****
 
@@ -29,6 +30,8 @@ app.use(express.json());
 app.use("/", indexroute);
 
 app.use("/memeadd", memedb);
+
+app.use("/content", memeshow);
 
 // *******
 

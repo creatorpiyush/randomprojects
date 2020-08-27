@@ -20,22 +20,16 @@ route.post("/add", upload.single("memeimg"), (req, res) => {
   const oldPath = "src/uploads/" + req.file.filename;
 
   const newPath =
-    "src/images/" +
+    "src/public/images/" +
     "memeimg_" +
-    Date.now() +
+    Date().split(" ").join("_").split(":").join("_") +
     "." +
     req.file.mimetype.split("/").pop();
 
   fs.rename(oldPath, newPath);
 
   const temp = new addmeme({
-    memeimg:
-      "src/images/" +
-      "memeimg_" +
-      Date().split(" ").join("_").split(":").join("_") +
-      "." +
-      req.file.mimetype.split("/").pop(),
-    // memeimg: req.body.memeimg,
+    memeimg: newPath.replace("src/public", ""),
     memeid: Date().split(" ").join("_").split(":").join("_"),
     memetitle: req.body.memetitle,
   });
