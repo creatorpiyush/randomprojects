@@ -36,9 +36,12 @@ route.post("/add", upload.single("memeimg"), (req, res) => {
 
   temp.save((err, result) => {
     if (err) {
+      if (req.file === "undefined") {
+        return res.status(422).send("Plese upload a pic");
+      }
       return res.send(err);
     }
-    return res.send(result);
+    return res.redirect("/");
   });
 });
 
