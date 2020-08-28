@@ -4,9 +4,11 @@ function loadProducts() {
       $("#posts-container").append(
         $(`<div class="card-image">
                 <img src="..${m.memeimg}">
-                <span class="card-title">${m.memetitle}</span>
-                <a href="..${m.memeimg}" class="btn-floating halfway-fab waves-effect waves-light blue" style="font-size: 35px;" download="${m.memetitle}"> 
-                <i class="material-icons">get_app</i></a>
+                    <a href="..${m.memeimg}" class="btn-floating halfway-fab waves-effect waves-light blue" style="font-size: 35px;" download="${m.memetitle}"> 
+                    <i class="material-icons">get_app</i></a>
+            </div>
+            <span class="card-title" style="color: black; font-weight: 1000;">${m.memetitle}</span>
+            <div id="endevery">
             </div>
 `)
       );
