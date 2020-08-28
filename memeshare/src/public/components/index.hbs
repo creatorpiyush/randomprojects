@@ -29,21 +29,26 @@
 
 <body>
 
-    
-
-    {{!-- <h1>Hi!! => </h1> --}}
-
-    {{!-- <p>Click the button to display the time.</p>
-
-    <button onclick="getElementById('demo').innerHTML=Date()">What is the time?</button>
-
-    <p id="demo"></p> --}}
-
     <div id="navbar"></div>
     <div id="cards"></div>
-    {{!-- <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a> --}}
+    <a href="/memeadd" class="btn-floating halfway-fab waves-effect waves-light red" id="fixedbutton"><i
+            class="material-icons" id="fixedbuttonsize">add_to_photos</i></a>
     <div id="footer"></div>
 
 </body>
 
 </html>
+
+<style>
+    #fixedbutton {
+        position: fixed;
+        font-size: 4rem;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    #fixedbuttonsize {
+        font-size: 30px;
+        font-weight: 700;
+    }
+</style>

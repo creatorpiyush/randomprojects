@@ -16,8 +16,13 @@ route.post("/add", upload.single("memeimg"), (req, res) => {
   // console.log("req.body", req.body);
   // console.log("req.file", req.file);
   // console.log("req.file", req.file.filename);
+  if (req.body.memetitle === "" || req.body.memetitle == null) {
+    return res
+      .status(422)
+      .render("addmeme", { err: "Please Add a Meme Title" });
+  }
   if (req.file == undefined) {
-    return res.status(422).send("Plese upload a Meme");
+    return res.status(422).render(".", { err: "Please Add a Meme" });
   }
 
   const oldPath = "src/uploads/" + req.file.filename;
@@ -30,10 +35,6 @@ route.post("/add", upload.single("memeimg"), (req, res) => {
     req.file.mimetype.split("/").pop();
 
   fs.rename(oldPath, newPath);
-
-  if (req.body.memetitle === "" || req.body.memetitle == null) {
-    return res.status(422).send("Plese upload a Meme Title");
-  }
 
   const temp = new addmeme({
     memeimg: newPath.replace("src/public", ""),
