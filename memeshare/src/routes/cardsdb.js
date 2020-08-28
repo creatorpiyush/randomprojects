@@ -13,9 +13,12 @@ route.get("/", (req, res) => {
   res.render("addmeme");
 });
 route.post("/add", upload.single("memeimg"), (req, res) => {
-  console.log("req.body", req.body);
-  console.log("req.file", req.file);
-  console.log("req.file", req.file.filename);
+  // console.log("req.body", req.body);
+  // console.log("req.file", req.file);
+  // console.log("req.file", req.file.filename);
+  if (req.file == undefined) {
+    return res.status(422).send("Plese upload a Meme");
+  }
 
   const oldPath = "src/uploads/" + req.file.filename;
 
@@ -28,6 +31,10 @@ route.post("/add", upload.single("memeimg"), (req, res) => {
 
   fs.rename(oldPath, newPath);
 
+  if (req.body.memetitle === "" || req.body.memetitle == null) {
+    return res.status(422).send("Plese upload a Meme Title");
+  }
+
   const temp = new addmeme({
     memeimg: newPath.replace("src/public", ""),
     memeid: Date().split(" ").join("_").split(":").join("_"),
@@ -36,9 +43,6 @@ route.post("/add", upload.single("memeimg"), (req, res) => {
 
   temp.save((err, result) => {
     if (err) {
-      if (req.file === "undefined") {
-        return res.status(422).send("Plese upload a pic");
-      }
       return res.send(err);
     }
     return res.redirect("/");
