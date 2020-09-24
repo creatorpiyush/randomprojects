@@ -1,0 +1,47 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#box {
+    border: 1px black dashed;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+}
+
+#form_data {
+    display: grid;
+    margin: 5% 4%;
+}
+
+#task {
+    display: block;
+    position: relative;
+    bottom: 15px;
+    font-size: 21px;
+    color: gray;
+}
+
+#task:hover {
+    font-size: 27px;
+    color: green;
+}
+
+#normal,
+#important {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+#submitbtn {
+    border-color: aqua;
+    border-radius: 6px;
+    background-color: aqua;
+    font-size: 21px;
+}
+
+#submitbtn:hover {
+    border-color: red;
+    border-radius: 6px;
+    background-color: aqua;
+}

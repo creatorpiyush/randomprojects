@@ -5,20 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js"></script>
 </head>
 
 <body>
 
     <div id="box">
-        <form>
+        <form id="form_data">
             <input type="text" name="task" id="task" placeholder="Enter Your Task">
 
-            <input type="radio" name="normal" id="normal" value="General">
-            <label for="normal">General</label>
-            <input type="radio" name="important" id="important" value="Important">
-            <label for="important">Important</label>
-
-            <input type="submit" value="Add Task">
+            <input class="radio" type="radio" name="type" id="normal" value="General">
+            <label for="normal" id="normal">General</label>
+            <input class="radio" type="radio" name="type" id="important" value="Important">
+            <label for="important" id="important">Important</label>
+            <div></div>
+            <input id="submitbtn" type="submit" value="Add Task">
         </form>
     </div>
 
