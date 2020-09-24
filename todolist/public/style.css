@@ -9,6 +9,14 @@
     right: 25%;
 }
 
+#taskbox {
+    border: 1px black dashed;
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    right: 25%;
+}
+
 #form_data {
     display: grid;
     margin: 5% 4%;

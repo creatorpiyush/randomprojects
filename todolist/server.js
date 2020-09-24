@@ -6,6 +6,9 @@ const { db, tasks } = require("./model/db");
 
 const taskroute = require("./routes/task_route");
 
+app.set("view engine", "hbs");
+app.set("views", "public");
+
 app.use("/", express.static(__dirname + "/public"));
 
 app.use(express.urlencoded({ extended: true }));
