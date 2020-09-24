@@ -16,12 +16,10 @@ const tasks = db.define("task", {
 
   task: {
     type: Datatype.STRING,
-    // allowNull: false,
-  },
-
-  normal: {
-    type: Datatype.STRING,
-    defaultValue: true,
+    allowNull: false,
+    validate: {
+      notNull: { msg: "Task is required" },
+    },
   },
 
   important: {

@@ -16,9 +16,11 @@
 
     <div id="box">
         <form action="/" id="form_data" method="POST">
-            <input type="text" name="task" id="task" placeholder="Enter Your Task">
 
-
+            <input type="text" name="task" id="task" placeholder="Enter Your Task"><br>
+            {{#if err}}
+            <code>Task is Required</code>
+            {{/if}}
             <input class="radio" type="radio" name="type" id="important" value="Important">
             <label for="important" id="important">Important</label>
             <div></div>
