@@ -3,7 +3,7 @@ const route = require("express").Router();
 const { db, tasks } = require("../model/db");
 
 route.get("/", (req, res) => {
-  res.render("index", { tasks });
+  res.render("index");
 });
 
 route.post("/", async (req, res) => {
@@ -13,5 +13,10 @@ route.post("/", async (req, res) => {
   });
   res.redirect("/");
 });
+
+route.get('/tasks', async(req,res)=>{
+  const task = await tasks.findAll();
+  res.status(200).send(task)
+})
 
 module.exports = route;
