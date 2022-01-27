@@ -13,7 +13,7 @@
     "express": "^4.17.1",
     "hbs": "^4.1.1",
     "nodemon": "^2.0.4",
-    "sequelize": "^6.3.5",
+    "sequelize": "^6.12.5",
     "sqlite3": "^5.0.0"
   }
 }
